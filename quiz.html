@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Quiz</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<link href="https://fonts.googleapis.com/css?family=PT+Sans+Narrow" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Dosis:200" rel="stylesheet">
+	<script>
+		var questions = ["What is Julian's favorite Halloween candy?", "Which of these is the best Halloween costume?", "Which of the following is the greater movie?", "What's the better color?", "Which is the better animal?"];
+		var answersA = ["Candy Corn", "The Wiggles", "Halloween", "Orange", "Spider"];
+		var answersB = ["Reeses Pieces", "Leon the Professional", "Friday the 13th", "Black", "Bat"];
+		var answersC = ["Peanut Butter Cups", "Michael Myers", "Scream", "Maroon", "Black Cat"];
+	</script>
+</head>
+<body>
+<h2>Julian's Quiz, A Difficult Quiz</h2>
+<h4>Select the correct answer, and find out if you're smart enough for my quiz.</h4>
+<h4 id="score"></h4>
+	<h3 id="question"></h3>
+	
+	<h4 id="finish">You have finished my quiz, I hope you performed.</h3>
+		
+	<div id="choices">
+	<button class="answ" id="A"></button>
+	<button class="answ" id="B"></button>
+	<button class="answ" id="C"></button>
+    </div>
+	
+	<h4 id="feedback"></h4>
+	
+	<div id="outer">
+	<button id="next" onclick="newQuestion()">start the quiz</button>
+	</div>
+		
+<script type="text/javascript">
+		var questionCounter=0;
+		var totalScore=0;
+		var answers = document.getElementsByClassName("answ");
+		function newQuestion(){
+			document.getElementById('next').style.display="none";
+			document.getElementById('next').innerHTML="next question";
+			document.getElementById('question').innerHTML=questions[questionCounter];
+			document.getElementById('A').innerHTML=answersA[questionCounter];
+			document.getElementById('A').style.display="inline";
+			document.getElementById('B').innerHTML=answersB[questionCounter];
+			document.getElementById('B').style.display="inline";
+			document.getElementById('C').innerHTML=answersC[questionCounter];
+			document.getElementById('C').style.display="inline";
+			document.getElementById("feedback").innerHTML=" ";
+			for (i=0; i<answers.length; i++){
+				answers[i].disabled=false;
+			}
+		};
+
+		document.getElementById("A").addEventListener("click", function(event){
+			document.getElementById("feedback").innerHTML="DING DING DING";
+			if (questionCounter<questions.length-1){
+				questionCounter+=1;
+				document.getElementById("next").style.display="inline-block";
+			} else {
+				document.getElementById("finish").style.display="inline-block";
+			};
+			totalScore+=1;
+			document.getElementById("score").innerHTML= "Total score: " + totalScore;
+			for (i=0; i<answers.length; i++){
+				answers[i].disabled="disabled";
+			}
+		});
+
+		document.getElementById("B").addEventListener("click", function(event){
+			document.getElementById("feedback").innerHTML="Close, but no cigar.";
+			if (questionCounter<questions.length-1){
+				questionCounter+=1;
+				document.getElementById("next").style.display="inline-block";
+			} else {
+				document.getElementById("finish").style.display="inline-block";
+			};
+			document.getElementById("score").innerHTML= "Total score: " + totalScore;
+			for (i=0; i<answers.length; i++){
+				answers[i].disabled="disabled";
+			}
+		});
+
+		document.getElementById("C").addEventListener("click", function(event){
+			document.getElementById("feedback").innerHTML="Close, but no cigar.";
+			if (questionCounter<questions.length-1){
+				questionCounter+=1;
+				document.getElementById("next").style.display="inline-block";
+			} else {
+				document.getElementById("finish").style.display="inline-block";
+			};
+			document.getElementById("score").innerHTML= "Total score: " + totalScore;
+			for (i=0; i<answers.length; i++){
+				answers[i].disabled="disabled";
+			}
+		});
+
+	</script>
+</body>
+</html>

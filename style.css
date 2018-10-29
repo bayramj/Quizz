@@ -1,0 +1,57 @@
+body{
+	font-family:sans-serif;
+	background: #DDA0DD;
+}
+h2 {
+	font-family: 'PT Sans Narrow', sans-serif;
+	text-align: center;
+	padding: 20px;
+}
+h4 {
+	text-align: center;	
+	font-family: 'Dosis', sans-serif;
+}
+h3{
+	font-size:1.6em;
+	font-weight:normal;
+	text-align: center;
+	padding-top: 20px;
+	margin-top: 40px;
+}
+
+#outer {
+	text-align: center;
+	margin: 0 auto;
+}
+#choices {
+	text-align: center;
+}
+.answ{
+	font-size:1.2em;
+	display:none;
+	color:black;
+	background:#8CE9ED;
+	border:3px solid black;
+	border-radius:0px;	
+	padding:.8em;
+	cursor:pointer;
+}
+
+#next{
+	background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+
+}
+
+#finish{
+	display:none;
+	position:fixed;
+	left:40%;
+	top:20%;
+}
